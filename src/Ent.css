@@ -177,6 +177,14 @@ header image{
     border: 1px solid #E3E5E6;
     border-radius: 8px;
 }
+#name:hover,#name:active,#name:focus,#surname:hover,#surname:active,#surname:focus{
+        outline:none;
+        border-color: #6C66FB;
+}
+.RegForm input:hover,input:active,input:focus{
+        outline:none;
+        border-color: #6C66FB;
+}
 #name,#surname,#email,#company,#password_r,#password_rr{
     padding: 12px 14px;
     gap: 8px;
@@ -187,6 +195,14 @@ header image{
     line-height: 26px;
     letter-spacing: -0.02em;
     color: #18191A;
+}
+#enter{
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4E2AE0;
 }
 #name,#surname{
     display: flex;
@@ -232,10 +248,8 @@ header image{
     height: 56px;
     padding: 16px 32px;
     gap: 12px;
-
-    border: 1px solid #6C66FB;
     border-radius: 16px;
-    
+    border-style: none;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;

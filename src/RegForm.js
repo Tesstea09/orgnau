@@ -12,7 +12,7 @@ class RegForm extends Component{
                 <div class = "start">
                     <div id = "startF">
                         <h1>Реєстрація</h1>
-                        <p>Вже є акаунт? <Link to="./EnterForm">Увійти</Link> </p>
+                        <p>Вже є акаунт? <Link to="./EnterForm" id="enter">Увійти</Link> </p>
                     </div>
                 </div>
                 <div id = "Reg"> </div>
@@ -22,8 +22,7 @@ class RegForm extends Component{
                                 <div>
                                     <label for="name" id = "name_l">Ім'я</label>
                                     <br></br>
-                                    <input type="text" id = "name" placeholder='Ангеліна'></input>
-                                    
+                                    <input type="text" id = "name" placeholder='Ангеліна'></input>  
                                 </div>
                                 <div>
                                     <label for="surname">Прізвище</label>
@@ -33,8 +32,8 @@ class RegForm extends Component{
                             </div>
                             <label for="email">Електронна пошта</label><input type="text" id = "email" placeholder='email@gmail.com'></input>
                             <label for="company">Компанія/Заклад</label><input type="text" id = "company" placeholder='НАУ'></input>
-                            <label for="password_r">Пароль</label><input type="text" id = "password_r" placeholder='**********'></input>
-                            <label for="password_rr">Повторіть пароль</label><input type="text" id = "password_rr" placeholder='**********'></input>
+                            <label for="password_r">Пароль</label><input type="password" id = "password_r" placeholder='**********'></input>
+                            <label for="password_rr">Повторіть пароль</label><input type="password" id = "password_rr" placeholder='**********'></input>
                             <div id = "reg">
                                 <button>Зареєструватися</button>   
                             </div>
