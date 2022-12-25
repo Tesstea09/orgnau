@@ -662,8 +662,6 @@ header image{
     flex-wrap: wrap;
     padding: 0px;
     gap: 32px;
-    
-    
 
     position: relative;
 }
@@ -680,9 +678,10 @@ header image{
 }
 .EventContent{
     margin-top: 65px;
+    margin-bottom: 80px;
     padding-left: 60px;
     padding-right: 60px;
-    height:2000px;
+    height:fit-content;
 }
 .filtercard{
     display: flex;
