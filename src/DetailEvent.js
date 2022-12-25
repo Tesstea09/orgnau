@@ -8,7 +8,11 @@ import Header from './Header';
 import Footer from './Footer';
 import poster from "./Rectangle.png"
 import logo from './logo.png'
-import file from './filecheck.svg'
+import file from './icon/file-check.svg'
+import user from './icon/user.svg'
+import mail from './icon/mail.svg'
+import globe from './icon/globe.svg'
+
 class DetailEvent extends Component{
     render(){
         return(
@@ -44,7 +48,7 @@ class DetailEvent extends Component{
                         <div class = "infcard">
                             <Info/>
                         </div>
-                        <div >
+                        <div class = "textdesc">
                             <div class = "congdesc">
                                 <h1>Описание конференции</h1>
                                 <p>International Science Group приглашает студентов, преподавателей школ и университетов принять участие в международной научно-практической конференции «Current challenges, trends and transformations», 13-16 декабря 2022 г., Бостон, США</p>
@@ -63,18 +67,20 @@ class DetailEvent extends Component{
                             <div class = "confcont">
                                 <h1>Контакты</h1>
                                 <div>
-
+                                    <img src = {user}></img>
+                                    <div>
+                                        <p>Владленов Денис Андреевич</p>
+                                        <p>Клиент-менеджер «isg-konf.com»</p>
+                                    </div>
                                 </div>
                                 <div>
-
+                                    <img src = {mail}></img>
+                                    <a href="mailto:info@isg-konf.com">info@isg-konf.com</a>
                                 </div>
                                 <div>
-                                    
+                                    <img src = {globe}></img>
+                                    <a href = "https://isg-konf.com/">https://isg-konf.com/</a>
                                 </div>
-                                <p>Владленов Денис Андреевич</p>
-                                <p>Клиент-менеджер «isg-konf.com»</p>
-                                <p>info@isg-konf.com</p>
-                                <p>https://isg-konf.com/</p>
                             </div>
                         </div> 
                     </div>
