@@ -753,15 +753,14 @@ header image{
 }
 .inf{
     background-image: url(./s1.png);
-    background-size: 100% 38%;
+    background-size: 100% 35%;
     background-repeat: no-repeat;
     padding: 2% 60px;
 }
 .infodet{
-    margin-top: 10%;
+    margin-top: 7%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 .det h1{
     font-family: 'Inter',sans-serif;
