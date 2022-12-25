@@ -18,6 +18,8 @@ class DetailEvent extends Component{
         return(
             <div>
                 <Header/>
+                <div class ="inf">
+                <button id = 'to'>К списку конференций</button>
                 <div class = "infodet">
                     <div class = "poster">
                         <img src = {poster}></img>
@@ -40,6 +42,7 @@ class DetailEvent extends Component{
                         </div>
                     </div>
                 </div>
+                </div>
                 <div class = "screen2">
                     <div>
                         <h1>Основные направления конференции</h1>
@@ -49,35 +52,35 @@ class DetailEvent extends Component{
                             <Info/>
                         </div>
                         <div class = "textdesc">
-                            <div class = "congdesc">
+                            <div class = "confdesc">
                                 <h1>Описание конференции</h1>
                                 <p>International Science Group приглашает студентов, преподавателей школ и университетов принять участие в международной научно-практической конференции «Current challenges, trends and transformations», 13-16 декабря 2022 г., Бостон, США</p>
                             </div>
                             <div class = "confdetail">
                                 <h1>Детали</h1>
-                                <div>
+                                <div class = "part3">
                                     <img img={file}></img>
                                     <p>Участник может предоставить несколько докладов</p>
                                 </div>
-                                <div>
+                                <div class = "part3">
                                     <img img={file}></img>
                                     <p>Языки</p>
                                 </div>
                             </div>
                             <div class = "confcont">
                                 <h1>Контакты</h1>
-                                <div>
+                                <div class = "part3">
                                     <img src = {user}></img>
                                     <div>
                                         <p>Владленов Денис Андреевич</p>
                                         <p>Клиент-менеджер «isg-konf.com»</p>
                                     </div>
                                 </div>
-                                <div>
+                                <div class = "part3">
                                     <img src = {mail}></img>
                                     <a href="mailto:info@isg-konf.com">info@isg-konf.com</a>
                                 </div>
-                                <div>
+                                <div class = "part3">
                                     <img src = {globe}></img>
                                     <a href = "https://isg-konf.com/">https://isg-konf.com/</a>
                                 </div>

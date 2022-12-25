@@ -28,7 +28,7 @@ class EventList extends Component {
 
   async componentDidMount() {
     const docIDs = await getDocID();
-    console.log(docIDs);
+    //console.log(docIDs);
 
     const events = docIDs.map((id) => {
       return { id };

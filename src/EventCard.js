@@ -51,10 +51,14 @@ class EventCard extends Component{
             type: data.type,
             description: data.description,
             date: data.date,
-            language: data.language
+            language: data.lang
         });
     }
     render(){
+
+        let langToRender = [];
+        langToRender.push(this.state.language);
+        
         return(
             <div class = "Card">
                 <img src={pattern} alt="pattern" id="patt"></img>
@@ -69,7 +73,7 @@ class EventCard extends Component{
                             <p id = "confdesc"> {this.state.description.slice(0, 250)} {this.state.description.length > this.state.description.slice(0, 250).length ? "..." : ""}</p>
                             <form class = "confinf">
                                 <output id="date">{this.state.date}</output>
-                                <output id="lang">{this.state.language}</output>
+                                <output id="lang">{langToRender.join(", ")}</output>
                             </form>
                         </div>
                     </div>
