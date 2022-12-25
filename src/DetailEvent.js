@@ -11,6 +11,7 @@ import file from './icon/file-check.svg'
 import user from './icon/user.svg'
 import mail from './icon/mail.svg'
 import globe from './icon/globe.svg'
+import attach from './icon/file-attachment.svg'
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
@@ -101,7 +102,7 @@ const DetailEvent = (props) => {
                         </div>
                         <div class = "but">
                             <div class="apply">
-                                <Link to = "/Apply">
+                                <Link to = "/Apply" >
                                 <button>Подати заявку</button> 
                                 </Link>
                             </div>
@@ -132,12 +133,16 @@ const DetailEvent = (props) => {
                             <div class = "confdetail">
                                 <h1>Детали</h1>
                                 <div class = "part3">
-                                    <img img={file}></img>
+                                    <img src={file}></img>
                                     <p>Участник может предоставить несколько докладов</p>
                                 </div>
                                 <div class = "part3">
-                                    <img img={file}></img>
+                                    <img src={file}></img>
                                     <p>{eventLang}</p>
+                                </div>
+                                <div class = "part3">
+                                    <img src={attach}></img>
+                                    <p>Електронна версія збірника</p>
                                 </div>
                             </div>
                             <div class = "confcont">

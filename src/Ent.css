@@ -855,8 +855,8 @@ header image{
     margin-right: 47px;
 }
 .textdesc img{
-    width:24px;
-    height:24px;
+    width:20px;
+    height:20px;
     margin-right: 12px;
 }
 .confcont a{
@@ -896,6 +896,9 @@ header image{
 
     width: 473px;
     height: 24px;
+}
+.part3 p{
+    vertical-align: middle;
 }
 #to{
     font-family: 'Inter',sans-serif;

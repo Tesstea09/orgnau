@@ -5,12 +5,15 @@ import close from './close.svg'
 import logo from './logo.png'
 function Rules() {
   const [show, setShow] = useState(false);
-
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
     <>
+    <Button variant="primary" onClick={handleShow}>
+        Launch static backdrop modal
+      </Button>
       <Modal
         dialogClassName = "rules"
         show={show}
