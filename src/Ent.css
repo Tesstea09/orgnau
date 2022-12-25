@@ -662,6 +662,8 @@ header image{
     flex-wrap: wrap;
     padding: 0px;
     gap: 32px;
+    
+    
 
     position: relative;
 }
@@ -835,5 +837,6 @@ header image{
     margin-right: 47px;
 }
 .textdesc img{
-
+    width:24px;
+    height:24px;
 }
