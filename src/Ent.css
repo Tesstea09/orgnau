@@ -235,9 +235,6 @@ header image{
     font-size: 16px;
     line-height: 19px;
     text-decoration: none;
-
-    /* Primary/600 */
-
     color: #4E2AE0;
 }
 #enter,#reg{
@@ -330,9 +327,18 @@ header image{
     color: #E3E5E6;
 }
 #patt{
-    border-radius: 16px 16px 0px 0px;
-    width: 676px;
+    width: 100%;
     height: 12px;
+    object-fit: fill;
+    margin: 0px;
+}
+.Card{
+    background-color:#191B1F;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 67px 63px rgba(0, 0, 0, 0.04), 0px 14.9653px 14.0719px rgba(0, 0, 0, 0.0238443), 0px 4.45557px 4.18956px rgba(0, 0, 0, 0.0161557);
+    border-radius: 16px;
+    border-style:none;
+    overflow: hidden;
 }
 .ConfComp{
     padding: 24px 16px 16px;
@@ -340,14 +346,6 @@ header image{
 
     width: 644px;
     height: 309px;
-    background: #FFFFFF;
-
-
-    border: 1px solid #FFFFFF;
-
-    box-shadow: 0px 67px 63px rgba(0, 0, 0, 0.04), 0px 14.9653px 14.0719px rgba(0, 0, 0, 0.0238443), 0px 4.45557px 4.18956px rgba(0, 0, 0, 0.0161557);
-    border-radius: 16px;
-
 }
 .ConfDev{
     display: flex;
