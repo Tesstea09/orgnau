@@ -113,8 +113,8 @@ const DetailEvent = (props) => {
                     <div class = "part1s">
 
                         <div class = "infcard">
-                            {eventTags.map(key => (
-                                    <Info key={key} eventID={key} />
+                            {eventTags.map(eventTags => (
+                                    <Info key={eventTags} eventID={eventTags} />
                                 ))}
                         </div>
 
