@@ -4,6 +4,7 @@ import pattern from './top-pattern.png'
 import confpost from './image.png'
 import { db } from "./firebase.js"
 import { doc, getDoc, getFirestore } from "@firebase/firestore";
+import { BrowserRouter as Link } from "react-router-dom";
 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -60,24 +61,28 @@ class EventCard extends Component{
         langToRender.push(this.state.language);
         
         return(
+            
             <div class = "Card">
-                <img src={pattern} alt="pattern" id="patt"></img>
-                <div class = "ConfComp">
-                    <div class = "ConfDev">
-                        <div>
-                            <img src = {confpost} id = "post"></img>
+                <Link to = '/RegForm'>
+                    <img src={pattern} alt="pattern" id="patt"></img>
+                    <div class = "ConfComp">
+                        <div class = "ConfDev">
+                            <div>
+                                <img src = {confpost} id = "post"></img>
+                            </div>
+                            <div class = "confinfor">
+                                <p id = "conftype"> {this.state.type} </p>
+                                <h1 id = "confname"> {this.state.name.slice(0, 70)} {this.state.name.length > this.state.name.slice(0, 70).length ? "..." : ""} </h1>
+                                <p id = "confdesc"> {this.state.description.slice(0, 250)} {this.state.description.length > this.state.description.slice(0, 250).length ? "..." : ""}</p>
+                                <form class = "confinf">
+                                    <output id="date">{this.state.date}</output>
+                                    <output id="lang">{langToRender.join(", ")}</output>
+                                </form>
+                            </div>
                         </div>
-                        <div class = "confinfor">
-                            <p id = "conftype"> {this.state.type} </p>
-                            <h1 id = "confname"> {this.state.name.slice(0, 70)} {this.state.name.length > this.state.name.slice(0, 70).length ? "..." : ""} </h1>
-                            <p id = "confdesc"> {this.state.description.slice(0, 250)} {this.state.description.length > this.state.description.slice(0, 250).length ? "..." : ""}</p>
-                            <form class = "confinf">
-                                <output id="date">{this.state.date}</output>
-                                <output id="lang">{langToRender.join(", ")}</output>
-                            </form>
-                        </div>
+                        
                     </div>
-                </div>
+                </Link>
 
             </div>
         )

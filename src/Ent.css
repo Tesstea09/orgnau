@@ -424,8 +424,7 @@ header image{
     display:flex;
     justify-content: flex-start;
     align-items: center;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    border-radius: 12px;
     background: #FFFFFF;
 }
 .info img{
@@ -912,4 +911,21 @@ header image{
 }
 body{
     background: #FAFAFA;
+}
+.other{
+    padding: 60px;
+    height: 374px;
+}
+.other h1{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #191B1F;
+    margin-bottom: 24px;
+}
+.otherconf{
+    display:flex;
+    flex-direction: column;
 }

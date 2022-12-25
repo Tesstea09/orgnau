@@ -46,7 +46,7 @@ class DetailEvent extends Component{
                 </div>
                 <div class = "screen2">
                     <div>
-                        <h1>Основные направления конференции</h1>
+                        <h1 id = "othhead">Основные направления конференции</h1>
                     </div>
                     <div class = "part1s">
                         <div class = "infcard">
@@ -100,9 +100,9 @@ class DetailEvent extends Component{
                             </div>
                     </div>
                 </div>
-                <div>
-                    <h1>Другие конференции</h1>
-                    <div>
+                <div class = "other">
+                    <h1 id = "othhead">Другие конференции</h1>
+                    <div class = "otherconf">
 
                     </div>
                 </div>
