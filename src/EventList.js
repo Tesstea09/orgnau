@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Ent.css';
 import EventCard from './EventCard';
+import Header from './Header';
+import Footer from './Footer';
 import { db } from "./firebase.js"
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -36,7 +38,9 @@ class EventList extends Component {
   }
 
   render() {
-    return (
+    return (      
+      <div>
+        <Header />
         <div class = "EventContent">
             <div color="red">
             <h1 id = "All">Всі конференції</h1>
@@ -47,6 +51,8 @@ class EventList extends Component {
             ))}
             </div>
         </div>
+        <Footer />
+      </div>
     );
   }
 }
