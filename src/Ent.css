@@ -860,12 +860,13 @@ header image{
     color: #191B1F;
 }
 .infcard{
+    display: flex;
+    flex-direction: column;
     margin-right: 47px;
 }
 .textdesc img{
-    width:20px;
-    height:20px;
-    margin-right: 12px;
+    width:24px;
+    height:24px;
 }
 .confcont a{
     font-family: 'Inter',sans-serif;
@@ -894,7 +895,6 @@ header image{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    line-height: 130%;
     color: #191B1F;
     display: flex;
     flex-direction: row;
