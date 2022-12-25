@@ -177,6 +177,10 @@ header image{
     border: 1px solid #E3E5E6;
     border-radius: 8px;   
 }
+.EntForm input{
+    margin-bottom: 24px;
+    margin-top:4px;
+}
 #name:hover,#name:active,#name:focus,#surname:hover,#surname:active,#surname:focus{
         outline:none;
         border-color: #6C66FB;
@@ -185,7 +189,7 @@ header image{
         outline:none;
         border-color: #6C66FB;
 }
-#name,#surname,#email,#company,#password_r,#password_rr{
+.EntForm input,#name,#surname,#email,#company,#password_r,#password_rr{
     padding: 12px 14px;
     gap: 8px;
     font-family: 'Inter', sans-serif;
@@ -214,13 +218,11 @@ header image{
     border: 1px solid #E3E5E6;
     border-radius: 8px;
 }
-#email{
-    margin-bottom: 24px;
-}
+
 #password{
     margin-bottom: 12px;
 }
-#name,#surname,#email,#company,#password_r{
+#name,#surname,#email1,#company,#password_r{
     margin-bottom: 24px;
 }
 #password_rr{
@@ -263,18 +265,12 @@ header image{
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
-
-    /* Base / White */
-
     color: #FFFFFF;
     padding: 16px 32px;    
     width: 160px;
     height: 56px;
-    
-    /* Primary / 500 */
-    
-    background: #4E2AE0;
-    border: 1px solid #4E2AE0;
+    background: #6C66FB;;
+    border-style:none;
     border-radius: 16px;
 }
 .footer{

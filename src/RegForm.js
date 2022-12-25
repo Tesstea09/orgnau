@@ -30,7 +30,7 @@ class RegForm extends Component{
                                     <input type="text" id = "surname" placeholder='Цезар'></input>
                                 </div>
                             </div>
-                            <label for="email">Електронна пошта</label><input type="text" id = "email" placeholder='email@gmail.com'></input>
+                            <label for="email">Електронна пошта</label><input type="text" id = "email1" placeholder='email@gmail.com'></input>
                             <label for="company">Компанія/Заклад</label><input type="text" id = "company" placeholder='НАУ'></input>
                             <label for="password_r">Пароль</label><input type="password" id = "password_r" placeholder='**********'></input>
                             <label for="password_rr">Повторіть пароль</label><input type="password" id = "password_rr" placeholder='**********'></input>

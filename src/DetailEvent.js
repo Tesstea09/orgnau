@@ -41,6 +41,8 @@ const DetailEvent = (props) => {
         let langToRender = [];
         langToRender.push(data.data().lang);
 
+        let eventTags = [];
+
         let map = new Map();
         map.set("name", data.data().name);
         map.set("type", data.data().type);
@@ -48,6 +50,12 @@ const DetailEvent = (props) => {
         map.set("description", data.data().description);
         map.set("imageURL", data.data()["image-url"]);
         map.set("lang", langToRender.join(", "));
+
+        //data.data().tags.forEach(){
+            //eventTags.push("1");
+        //}
+
+        //console.log(eventTags);
         
         return map;
       }
