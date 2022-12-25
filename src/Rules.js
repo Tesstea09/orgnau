@@ -11,9 +11,6 @@ function Rules() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
-      </Button>
       <Modal
         dialogClassName = "rules"
         show={show}
