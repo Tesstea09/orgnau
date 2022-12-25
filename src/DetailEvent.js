@@ -31,6 +31,7 @@ const DetailEvent = (props) => {
     const [eventDescription, setEventDescription] = useState(null);
     const [eventImageURL, setEventImageURL] = useState(null);
     const [eventLang, setEventLang] = useState(null);
+    const [eventTags, setEventTags] = useState(null);
 
   
     useEffect(() => {
@@ -43,7 +44,8 @@ const DetailEvent = (props) => {
         let langToRender = [];
         langToRender.push(data.data().lang);
 
-        let eventTags = [];
+        let eTags = [];
+        eTags.push(data.data().tags);
 
         let map = new Map();
         map.set("name", data.data().name);
@@ -52,12 +54,7 @@ const DetailEvent = (props) => {
         map.set("description", data.data().description);
         map.set("imageURL", data.data()["image-url"]);
         map.set("lang", langToRender.join(", "));
-
-        //data.data().tags.forEach(){
-            //eventTags.push("1");
-        //}
-
-        //console.log(eventTags);
+        map.set("eventTags", eTags);
         
         return map;
       }
@@ -69,7 +66,15 @@ const DetailEvent = (props) => {
         setEventDescription(map.get("description"));
         setEventImageURL(map.get("imageURL"));
         setEventLang(map.get("lang"));
+        setEventTags(map.get("eventTags"));
       });
+
+      fetchData(state).then((map) => {
+        console.log(eventLang);
+        console.log(eventTags);
+      });
+
+
     }, []);
 
         
@@ -114,9 +119,11 @@ const DetailEvent = (props) => {
                         <h1 id = "othhead">Основные направления конференции</h1>
                     </div>
                     <div class = "part1s">
+
                         <div class = "infcard">
-                            <Info/>
+                                <Info />
                         </div>
+
                         <div class = "textdesc">
                             <div class = "confdesc">
                                 <h1>Описание конференции</h1>
