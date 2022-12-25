@@ -11,8 +11,6 @@ import file from './icon/file-check.svg'
 import user from './icon/user.svg'
 import mail from './icon/mail.svg'
 import globe from './icon/globe.svg'
-import Button from 'react-bootstrap/Button';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
 
@@ -31,10 +29,11 @@ const DetailEvent = (props) => {
     const [eventDescription, setEventDescription] = useState(null);
     const [eventImageURL, setEventImageURL] = useState(null);
     const [eventLang, setEventLang] = useState(null);
-    const [eventTags, setEventTags] = useState(null);
+    const [eventTags, setEventTags] = useState([""]);
 
   
     useEffect(() => {
+        
       async function fetchData(state) {
         const colRef = collection(db, "events");
         const docRef = doc(db, "events", state);
@@ -44,7 +43,7 @@ const DetailEvent = (props) => {
         let langToRender = [];
         langToRender.push(data.data().lang);
 
-        let eTags = [];
+        let eTags = data.data().tags;
         eTags.push(data.data().tags);
 
         let map = new Map();
@@ -77,16 +76,13 @@ const DetailEvent = (props) => {
 
     }, []);
 
-        
-
         return(
+            
             <div>
                 <Header/>
                 <div class = "container">
                 <div class ="inf">
-                <Link to = "/EventList">
                 <button id = 'to'>К списку конференций</button>
-                </Link>
                 <div class = "infodet">
                     <div class = "poster">
                         <img src = {eventImageURL}></img>
@@ -101,14 +97,10 @@ const DetailEvent = (props) => {
                         </div>
                         <div class = "but">
                             <div class="apply">
-                                <Link to = "/Apply">
-                                <button>Подати заявку</button> 
-                                </Link>
+                                <a href="mailto:cezar191299@gmail.com?subject=Подача заявки">Подати заявку</a> 
                             </div>
                             <div class = "rulesb">
-                                <Link to = "/Rules">
-                                <button>Правила подачи и оформления тезисов</button>
-                                </Link>
+                                <a href={logo} download="newfile.png">Правила подачи и оформления тезисов</a>
                             </div>
                         </div>
                     </div>
@@ -121,7 +113,9 @@ const DetailEvent = (props) => {
                     <div class = "part1s">
 
                         <div class = "infcard">
-                                <Info />
+                            {eventTags.map(key => (
+                                    <Info key={key} eventID={key} />
+                                ))}
                         </div>
 
                         <div class = "textdesc">
