@@ -433,6 +433,8 @@ header image{
     align-items: center;
     border-radius: 12px;
     background: #FFFFFF;
+    margin-bottom: 16px;
+    overflow: hidden;
 }
 .info img{
     margin-right:16px;
@@ -821,6 +823,12 @@ header image{
 
     background-color: none;
     border:none;
+}
+.tagImg{
+    width: 160px;
+    height: 100px;
+    overflow: hidden;
+    margin-right: 16px;
 }
 .rulesb button{
     color: #424448;
