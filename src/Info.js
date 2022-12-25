@@ -20,6 +20,7 @@ class Info extends Component{
 
         this.state = {
             name: '',
+            imageURL: ''
         }
 
         this.handleEvent = this.handleEvent.bind(this); 
@@ -36,7 +37,8 @@ class Info extends Component{
         const data = await loadData(eventID);
 
         this.setState({ 
-            name: data.name
+            name: data.name,
+            imageURL: data["img-url"]
         });
     }
 
@@ -44,8 +46,9 @@ class Info extends Component{
     render(){
         return(
             <div class = "info">
-                <img src = {back}></img>
-                <div></div>
+            
+                <div class = "tagImg"> <img src = {this.state.imageURL}></img> </div>
+
                 <div class = "catname">
                     <p> {this.state.name} </p>
                 </div>
