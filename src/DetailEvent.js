@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component, useEffect, useState} from 'react'
 import './Ent.css'
 import InfoCardV from './InfoCardV';
 import InfoCard from './InfoCard';
@@ -13,8 +13,56 @@ import user from './icon/user.svg'
 import mail from './icon/mail.svg'
 import globe from './icon/globe.svg'
 
-class DetailEvent extends Component{
-    render(){
+import { useLocation } from "react-router-dom";
+
+import { db } from "./firebase.js"
+import { doc, getDoc } from "@firebase/firestore";
+import { collection } from "firebase/firestore";
+
+
+
+const DetailEvent = (props) => {
+    const { state } = useLocation();
+    console.log(state);
+  
+    const [eventName, setEventName] = useState(null);
+    const [eventType, setEventType] = useState(null);
+    const [eventDate, setEventDate] = useState(null);
+    const [eventDescription, setEventDescription] = useState(null);
+    const [eventImageURL, setEventImageURL] = useState(null);
+    const [eventLang, setEventLang] = useState(null);
+
+  
+    useEffect(() => {
+      async function fetchData(state) {
+        const colRef = collection(db, "events");
+        const docRef = doc(db, "events", state);
+        
+        const data = await getDoc(docRef);
+        
+        let map = new Map();
+        map.set("name", data.data().name);
+        map.set("type", data.data().type);
+        map.set("date", data.data().date);
+        map.set("description", data.data().description);
+        map.set("imageURL", data.data()["image-url"]);
+        map.set("lang", data.data().lang);
+        
+        return map;
+      }
+  
+      fetchData(state).then((map) => {
+        setEventName(map.get("name"));
+        setEventType(map.get("name"));
+        setEventDate(map.get("name"));
+        setEventDescription(map.get("name"));
+        setEventImageURL(map.get("imageURL"));
+        setEventLang(map.get("name"));
+      });
+    }, []);
+
+        
+
         return(
             <div>
                 <Header/>
@@ -23,11 +71,11 @@ class DetailEvent extends Component{
                 <button id = 'to'>К списку конференций</button>
                 <div class = "infodet">
                     <div class = "poster">
-                        <img src = {poster}></img>
+                        <img src = {eventImageURL}></img>
                     </div>
                     <div class = "det">
-                        <p>Международная научно-практическая конференция </p>
-                        <h1>Экспериментальные и теоретические исследования в современной науке</h1>
+                        <p> {eventType} </p>
+                        <h1> {eventName} </h1>
                         <div class = "card">
                             <InfoCard/>
                             <InfoCardV/>
@@ -110,7 +158,6 @@ class DetailEvent extends Component{
                 <Footer/>
             </div>
         )
-    }
 
 }
 export default DetailEvent

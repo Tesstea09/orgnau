@@ -743,6 +743,7 @@ header image{
     width: 341px;
     height: 475px;
     margin-right: 32px;
+    border-radius: 16px;
 }
 .inf{
     background-image: url(./s1.png);
