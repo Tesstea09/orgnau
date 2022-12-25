@@ -6,7 +6,6 @@ import InfoCard2 from './InfoCard2';
 import Info from './Info';
 import Header from './Header';
 import Footer from './Footer';
-import poster from "./Rectangle.png"
 import logo from './logo.png'
 import file from './icon/file-check.svg'
 import user from './icon/user.svg'
