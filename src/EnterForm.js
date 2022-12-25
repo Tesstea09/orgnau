@@ -3,12 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import RegForm from './RegForm'
 import './Ent.css'
 class EnterForm extends Component{
-    constructor(props){
-
-    }
-    identity(obj){
-
-    }
     render(){
         return(
             <div class = "main">

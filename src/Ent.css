@@ -177,30 +177,24 @@ header image{
     border: 1px solid #E3E5E6;
     border-radius: 8px;
 }
-#name,#surname{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+#name,#surname,#email,#company,#password_r,#password_rr{
     padding: 12px 14px;
     gap: 8px;
-
-    width: 236px;
-    height: 26px;
-
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 26px;
-    /* identical to box height, or 162% */
-
     letter-spacing: -0.02em;
-
-    /* Gray/900 */
-
     color: #18191A;
+}
+#name,#surname{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-
+    width: 236px;
+    height: 26px;
     border: 1px solid #E3E5E6;
     border-radius: 8px;
 }

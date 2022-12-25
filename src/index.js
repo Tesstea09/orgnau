@@ -12,6 +12,7 @@ import RegForm from './RegForm';
 import EventCard from './EventCard';
 import EventList from './EventList';
 import Rules from './Rules';
+import EnterForm from './EnterForm'
 import Filter from './Filter';
 import DetailEvent from './DetailEvent';
 import reportWebVitals from './reportWebVitals';
@@ -30,6 +31,9 @@ const router = createBrowserRouter([
     },
     {
       path:"/RegForm",element: <RegForm/>
+    },
+    {
+      path:"/EnterForm",element: <EnterForm/>
     },
     {
       path:"/EventCard",element: <EventCard/>
