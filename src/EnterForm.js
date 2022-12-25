@@ -7,16 +7,16 @@ class EnterForm extends Component{
         return(
             <div class = "main">
             <div class = "start">
-                <div id = "startF">
+                <div class = "startF">
                     <h1>Увійти</h1> 
                     <Link to = '/RegForm'>
                         <p>Ще не створили акаунт? <span>Реєстрація</span> </p>
                     </Link>
                 </div>
             </div>
-            <div id = "Ent"> </div>
-                <div id = "EntS">
-                    <form action="" name ="EntF" id = "EntForm">
+            <div class = "Ent"> </div>
+                <div class = "EntS">
+                    <form action="" name ="EntF" class = "EntForm">
                         <label for="email">Електронна пошта</label><input type="text" id = "email"></input>
                         <label for="password">Пароль</label><input type="text" id = "password"></input>
                         <a href="" id = "forget">Забули пароль?</a>

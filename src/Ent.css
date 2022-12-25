@@ -54,7 +54,7 @@ header image{
     background: url(s1.png);
     background-size: cover;
 }
-#startF{
+.startF{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -73,7 +73,7 @@ header image{
     border-color: #FFFFFF;
     border-radius: 16px 16px 0px 0px;
 }
-#startF h1{
+.startF h1{
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -87,7 +87,7 @@ header image{
 
     color: #191B1F;
 }
-#startF p{
+.startF p{
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -98,12 +98,12 @@ header image{
 
     color: #424448;
 }
-#startF span{
+.startF span{
     font-weight: 600;
     color: #4E2AE0;
     text-decoration: none;
 }
-#Ent,#Reg{
+.Ent,#Reg{
     position: absolute;
     z-index: 1;
     margin: 0px;
@@ -115,7 +115,7 @@ header image{
     filter: blur(20px);
 
 }
-#EntS,#RegS{
+.EntS,#RegS{
     height: 498px;
     position: relative;
     display: flex;
@@ -125,7 +125,7 @@ header image{
 #RegS{
     height:750px;
 }
-#EntForm,.RegForm{
+.EntForm,.RegForm{
     width: 536px;
     display: flex;
     flex-direction: column;
@@ -157,7 +157,7 @@ header image{
 .name_sur label{
     display:block;
 }
-#EntForm label,.RegForm label{
+.EntForm label,.RegForm label{
     margin-bottom: 4px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -171,11 +171,11 @@ header image{
 
     opacity: 0.5;
 }
-#EntForm input,.RegForm input{
+.EntForm input,.RegForm input{
     width: 100%-2px;
     height: 50px;
     border: 1px solid #E3E5E6;
-    border-radius: 8px;
+    border-radius: 8px;   
 }
 #name:hover,#name:active,#name:focus,#surname:hover,#surname:active,#surname:focus{
         outline:none;
@@ -758,7 +758,6 @@ header image{
     border-radius: 16px;
 }
 .inf{
-    background-image: url(./s1.png);
     background-size: 100% 35%;
     background-repeat: no-repeat;
     padding: 2% 60px;

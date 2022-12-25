@@ -12,7 +12,7 @@ class RegForm extends Component{
                 <div class = "start">
                     <div id = "startF">
                         <h1>Реєстрація</h1>
-                        <p>Вже є акаунт? <Link to="./EnterForm" id="enter">Увійти</Link> </p>
+                        <p>Вже є акаунт? <Link to="/EnterForm" id="enter">Увійти</Link> </p>
                     </div>
                 </div>
                 <div id = "Reg"> </div>
