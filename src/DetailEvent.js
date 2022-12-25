@@ -6,7 +6,6 @@ import InfoCard2 from './InfoCard2';
 import Info from './Info';
 import Header from './Header';
 import Footer from './Footer';
-import poster from "./Rectangle.png"
 import logo from './logo.png'
 import file from './icon/file-check.svg'
 import user from './icon/user.svg'
@@ -23,7 +22,6 @@ import { collection } from "firebase/firestore";
 
 const DetailEvent = (props) => {
     const { state } = useLocation();
-    console.log(state);
   
     const [eventName, setEventName] = useState(null);
     const [eventType, setEventType] = useState(null);
@@ -40,24 +38,27 @@ const DetailEvent = (props) => {
         
         const data = await getDoc(docRef);
         
+        let langToRender = [];
+        langToRender.push(data.data().lang);
+
         let map = new Map();
         map.set("name", data.data().name);
         map.set("type", data.data().type);
         map.set("date", data.data().date);
         map.set("description", data.data().description);
         map.set("imageURL", data.data()["image-url"]);
-        map.set("lang", data.data().lang);
+        map.set("lang", langToRender.join(", "));
         
         return map;
       }
   
       fetchData(state).then((map) => {
         setEventName(map.get("name"));
-        setEventType(map.get("name"));
-        setEventDate(map.get("name"));
-        setEventDescription(map.get("name"));
+        setEventType(map.get("type"));
+        setEventDate(map.get("date"));
+        setEventDescription(map.get("description"));
         setEventImageURL(map.get("imageURL"));
-        setEventLang(map.get("name"));
+        setEventLang(map.get("lang"));
       });
     }, []);
 
@@ -103,7 +104,7 @@ const DetailEvent = (props) => {
                         <div class = "textdesc">
                             <div class = "confdesc">
                                 <h1>Описание конференции</h1>
-                                <p>International Science Group приглашает студентов, преподавателей школ и университетов принять участие в международной научно-практической конференции «Current challenges, trends and transformations», 13-16 декабря 2022 г., Бостон, США</p>
+                                <p> {eventDescription} </p>
                             </div>
                             <div class = "confdetail">
                                 <h1>Детали</h1>
@@ -113,7 +114,7 @@ const DetailEvent = (props) => {
                                 </div>
                                 <div class = "part3">
                                     <img img={file}></img>
-                                    <p>Языки</p>
+                                    <p>{eventLang}</p>
                                 </div>
                             </div>
                             <div class = "confcont">
