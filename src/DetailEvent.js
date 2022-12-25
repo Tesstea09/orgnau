@@ -8,6 +8,7 @@ import Header from './Header';
 import Footer from './Footer';
 import poster from "./Rectangle.png"
 import logo from './logo.png'
+import file from './filecheck.svg'
 class DetailEvent extends Component{
     render(){
         return(
@@ -50,11 +51,26 @@ class DetailEvent extends Component{
                             </div>
                             <div class = "confdetail">
                                 <h1>Детали</h1>
-                                <p>Участник может предоставить несколько докладов</p>
-                                <p>Языки</p>
+                                <div>
+                                    <img img={file}></img>
+                                    <p>Участник может предоставить несколько докладов</p>
+                                </div>
+                                <div>
+                                    <img img={file}></img>
+                                    <p>Языки</p>
+                                </div>
                             </div>
                             <div class = "confcont">
                                 <h1>Контакты</h1>
+                                <div>
+
+                                </div>
+                                <div>
+
+                                </div>
+                                <div>
+                                    
+                                </div>
                                 <p>Владленов Денис Андреевич</p>
                                 <p>Клиент-менеджер «isg-konf.com»</p>
                                 <p>info@isg-konf.com</p>
