@@ -239,8 +239,12 @@ header image{
     text-decoration: none;
     color: #4E2AE0;
 }
-#enter,#reg{
+.enter,#reg{
     text-align: right;
+}
+.enter img{
+    width: 24px;
+    height: 24px;
 }
 #reg button{
     width: 308px;
@@ -259,7 +263,7 @@ header image{
     background: #6C66FB;
 
 }
-#enter button{
+.enter button{
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -272,6 +276,7 @@ header image{
     background: #6C66FB;;
     border-style:none;
     border-radius: 16px;
+    margin-top: 50px;
 }
 .footer{
     display: flex;
@@ -817,7 +822,7 @@ header image{
     background-color: none;
     border:none;
 }
-.rulesb a{
+.rulesb button{
     color: #424448;
 }
 .interest{

@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import RegForm from './RegForm'
 import './Ent.css'
+import ent from "./icon/chevron-left.svg"
 class EnterForm extends Component{
     render(){
         return(
@@ -19,9 +20,10 @@ class EnterForm extends Component{
                     <form action="" name ="EntF" class = "EntForm">
                         <label for="email">Електронна пошта</label><input type="text" placeholder='email@gmail.com'></input>
                         <label for="password">Пароль</label><input type="password" placeholder='*********'></input>
-                        <a href="" id = "forget">Забули пароль?</a>
-                        <div id="enter">
-                        <button>Увійти</button>
+                        <div class="enter">
+                            <Link to = "/EventList">
+                                <button>Увійти</button>
+                            </Link>
                         </div> 
                     </form>
                 </div> 

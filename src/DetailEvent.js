@@ -11,6 +11,8 @@ import file from './icon/file-check.svg'
 import user from './icon/user.svg'
 import mail from './icon/mail.svg'
 import globe from './icon/globe.svg'
+import Button from 'react-bootstrap/Button';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
 
@@ -77,7 +79,9 @@ const DetailEvent = (props) => {
                 <Header/>
                 <div class = "container">
                 <div class ="inf">
+                <Link to = "/EventList">
                 <button id = 'to'>К списку конференций</button>
+                </Link>
                 <div class = "infodet">
                     <div class = "poster">
                         <img src = {eventImageURL}></img>
@@ -92,10 +96,14 @@ const DetailEvent = (props) => {
                         </div>
                         <div class = "but">
                             <div class="apply">
-                                <a href="mailto:cezar191299@gmail.com?subject=Подача заявки">Подати заявку</a> 
+                                <Link to = "/Apply">
+                                <button>Подати заявку</button> 
+                                </Link>
                             </div>
                             <div class = "rulesb">
-                                <a href={logo} download="newfile.png">Правила подачи и оформления тезисов</a>
+                                <Link to = "/Rules">
+                                <button>Правила подачи и оформления тезисов</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
