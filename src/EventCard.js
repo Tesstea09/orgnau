@@ -6,12 +6,9 @@ import { db } from "./firebase.js"
 import { doc, getDoc, getFirestore } from "@firebase/firestore";
 import { Link } from "react-router-dom";
 
-import { collection, query, where, getDocs } from "firebase/firestore";
-
 const firestore = getFirestore();
 
 async function loadData(docId) {
-    const colRef = collection(db, "events");
     const docRef = doc(db, "events", docId);
 
     const docSnap = await getDoc(docRef);
