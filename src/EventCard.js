@@ -4,7 +4,7 @@ import pattern from './top-pattern.png'
 import confpost from './image.png'
 import { db } from "./firebase.js"
 import { doc, getDoc, getFirestore } from "@firebase/firestore";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { collection, query, where, getDocs } from "firebase/firestore";
 
@@ -63,7 +63,7 @@ class EventCard extends Component{
         return(
             
             <div class = "Card">
-                <Link to = '/RegForm'>
+                <Link to = '/DetailEvent' state = {this.props.cardID} >
                     <img src={pattern} alt="pattern" id="patt"></img>
                     <div class = "ConfComp">
                         <div class = "ConfDev">

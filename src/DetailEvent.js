@@ -13,8 +13,14 @@ import user from './icon/user.svg'
 import mail from './icon/mail.svg'
 import globe from './icon/globe.svg'
 
-class DetailEvent extends Component{
-    render(){
+import { useLocation } from "react-router-dom";
+
+
+const DetailEvent = (props) => {
+
+        const { state } = useLocation()
+        console.log(state);
+
         return(
             <div>
                 <Header/>
@@ -110,7 +116,6 @@ class DetailEvent extends Component{
                 <Footer/>
             </div>
         )
-    }
 
 }
 export default DetailEvent
