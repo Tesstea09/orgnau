@@ -1,12 +1,8 @@
 import React,{Component} from 'react'
 import './Ent.css'
-import pattern from './top-pattern.png'
-import confpost from './image.png'
 import { db } from "./firebase.js"
-import { doc, getDoc, getFirestore } from "@firebase/firestore";
+import { doc, getDoc } from "@firebase/firestore";
 import { Link } from "react-router-dom";
-
-const firestore = getFirestore();
 
 async function loadData(docId) {
     const docRef = doc(db, "events", docId);
@@ -49,7 +45,9 @@ class EventCard extends Component{
             type: data.type,
             description: data.description,
             date: data.date,
-            language: data.lang
+            language: data.lang,
+            imageURL: data["image-url"],
+            imageBG: data["imageBG-url"]
         });
     }
     render(){
@@ -61,11 +59,11 @@ class EventCard extends Component{
             
             <div class = "Card">
                 <Link to = '/DetailEvent' state = {this.props.cardID} >
-                    <img src={pattern} alt="pattern" id="patt"></img>
+                    <img src={this.state.imageBG} alt="pattern" id="patt"></img>
                     <div class = "ConfComp">
                         <div class = "ConfDev">
                             <div>
-                                <img src = {confpost} id = "post"></img>
+                                <img src = {this.state.imageURL} id = "post"></img>
                             </div>
                             <div class = "confinfor">
                                 <p id = "conftype"> {this.state.type} </p>
