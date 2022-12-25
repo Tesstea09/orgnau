@@ -47,7 +47,6 @@ const DetailEvent = (props) => {
         langToRender.push(data.data().lang);
 
         let eTags = data.data().tags;
-        eTags.push(data.data().tags);
 
         let map = new Map();
         map.set("name", data.data().name);
