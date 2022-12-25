@@ -18,6 +18,7 @@ class DetailEvent extends Component{
         return(
             <div>
                 <Header/>
+                <div class = "container">
                 <div class ="inf">
                 <button id = 'to'>К списку конференций</button>
                 <div class = "infodet">
@@ -104,6 +105,7 @@ class DetailEvent extends Component{
                     <div>
 
                     </div>
+                </div>
                 </div>
                 <Footer/>
             </div>

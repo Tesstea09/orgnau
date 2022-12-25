@@ -830,7 +830,6 @@ header image{
 }
 .screen2{
     padding: 60px 80px;
-    background: #FAFAFA;
 }
 .part1s{
     display: flex;
@@ -906,4 +905,11 @@ header image{
     background: #FFFFFF;
     border-radius:1000px ;
     border-style: none;
+}
+.container{
+    margin: auto auto;
+    max-width: 1440px;
+}
+body{
+    background: #FAFAFA;
 }
