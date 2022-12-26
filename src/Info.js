@@ -34,8 +34,6 @@ class Info extends Component {
     }
 
     async componentDidMount() {
-        //console.log("Component did Mount");
-
         var eventID = this.props.eventID;
         const data = await loadData(eventID);
 
@@ -49,9 +47,7 @@ class Info extends Component {
     render() {
         return (
             <div class = "info">
-
                 <div class="tagImg"> <img src={this.state.imageURL || imageLoading}></img> </div>
-
                 <div class = "catname">
                     <p> {this.state.name || <Skeleton />} </p>
                 </div>
