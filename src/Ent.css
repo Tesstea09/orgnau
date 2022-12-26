@@ -625,14 +625,14 @@ a {
     position: absolute;
     overflow: hidden;
     width: 100%;
-    height: 230px;
+    height: 220px;
     background-color: #0b76ef;
 }
 
 .detailsBackdropIMG {
     height: 100%;
     width: 100%;
-    background-size: cover;
+    object-fit: cover;
 }
 
 .rules {
@@ -765,6 +765,7 @@ a {
 .apply {
     width: 181px;
     height: 24px;
+    cursor: pointer;
 }
 
 .apply,
@@ -977,6 +978,7 @@ a {
     gap: 12px;
     background-color: none;
     border: none;
+    cursor: pointer;
 }
 
 #a,
@@ -988,6 +990,7 @@ a {
     line-height: 24px;
     border-style: none;
     background: none;
+    cursor: pointer;
 }
 
 #a {
@@ -1109,6 +1112,7 @@ a {
     background: #FFFFFF;
     border-radius: 1000px;
     border-style: none;
+    cursor: pointer;
 }
 
 .container {
@@ -1142,7 +1146,6 @@ body {
     flex-direction: row;
     gap: 32px;
     overflow-x: scroll;
-    max-height: 500px;
     padding-bottom: 32px;
 }
 
