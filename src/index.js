@@ -28,25 +28,13 @@ const router = createBrowserRouter([
     path: "/", element: <EnterForm />, errorElement: <ErrorPage />
   },
   {
-    path: "/Ent", element: <Ent />
+    path: "/register", element: <RegForm />
   },
   {
-    path: "/RegForm", element: <RegForm />
-  },
-  {
-    path: "/EnterForm", element: <EnterForm />
-  },
-  {
-    path: "/EventCard", element: <EventCard />
+    path: "/login", element: <EnterForm />
   },
   {
     path: "/events", element: <EventList />
-  },
-  {
-    path: "/Rules", element: <Rules />  
-  },
-  {
-    path: "/error", element: <Error />  
   },
   {
     path: "/events/:cardID", element: <DetailEvent />

@@ -57,6 +57,7 @@ const DetailEvent = (props) => {
     const [eventLang, setEventLang] = useState(null);
     const [eventTags, setEventTags] = useState([""]);
     const [otherEvents, setOtherEvents] = useState([""]);
+    const [contacts, setContacts] = useState("");
 
 
     useEffect(() => {
@@ -91,6 +92,7 @@ const DetailEvent = (props) => {
                 map.set("eventTags", eTags);
                 map.set("imageBG", data.data()["imageBG-url"]);
                 map.set("otherEvents", docIDs);
+                map.set("contacts", data.data().contacts)
 
                 return map;
             }
@@ -105,12 +107,11 @@ const DetailEvent = (props) => {
                 setEventTags(map.get("eventTags"));
                 setEventImageBGURL(map.get("imageBG"));
                 setOtherEvents(map.get("otherEvents"));
+                setContacts(map.get("contacts"));
             });
         }
 
     }, [cardID]);
-
-
 
     return (
 
@@ -186,17 +187,17 @@ const DetailEvent = (props) => {
                                 <div class="part3">
                                     <img src={user}></img>
                                     <div>
-                                        <p>Владленов Денис Андрійович</p>
-                                        <p>Клієнт-менеджер «isg-konf.com»</p>
+                                        <p>{contacts.name || <Skeleton />}</p>
+                                        <p>{contacts.position || <Skeleton />}</p>
                                     </div>
                                 </div>
                                 <div class="part3">
                                     <img src={mail}></img>
-                                    <a href="mailto:info@isg-konf.com">info@isg-konf.com</a>
+                                    <a href="mailto:info@isg-konf.com"> {contacts.mail || <Skeleton />} </a>
                                 </div>
                                 <div class="part3">
                                     <img src={globe}></img>
-                                    <a href="https://isg-konf.com/">https://isg-konf.com/</a>
+                                    <a href="https://isg-konf.com/">{contacts.website || <Skeleton />}</a>
                                 </div>
                             </div>
                         </div>
