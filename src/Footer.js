@@ -7,10 +7,10 @@ function Footer(){
         return(
             <div class="footer">
                 <div class = "FirstPF">
-                    <Link to = '/EventList'>
+                    <Link to = '/events'>
                         <img src={logo} alt=""></img>
                     </Link>
-                    <Link to = '/EventList'>
+                    <Link to = '/events'>
                         <a href="">Всі конференції</a>
                     </Link>
                 </div>

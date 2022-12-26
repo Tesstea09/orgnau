@@ -9,10 +9,16 @@ import Header from './Header';
 import Footer from './Footer';
 import logo from './logo.png'
 import file from './icon/file-check.svg'
+import language from './icon/language.svg'
 import user from './icon/user.svg'
 import mail from './icon/mail.svg'
 import globe from './icon/globe.svg'
 import attach from './icon/file-attachment.svg'
+import imageLoading from './image-loading.png'
+import chevronLeft from './icon/chevron-left.svg'
+
+import { useParams } from "react-router-dom";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
@@ -25,7 +31,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import close from './close.svg'
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const DetailEvent = (props) => {
+    const { cardID } = useParams();
+
+    //console.log("cardID ", cardID);
+
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
 
@@ -33,7 +46,6 @@ const DetailEvent = (props) => {
     const handleShow = () => setShow(true);
     const handleClosev2 = () => setShow2(false);
     const handleShowv2 = () => setShow2(true);
-    const { state } = useLocation();
 
     const [eventName, setEventName] = useState(null);
     const [eventType, setEventType] = useState(null);
@@ -48,71 +60,76 @@ const DetailEvent = (props) => {
 
     useEffect(() => {
 
-        async function fetchData(state) {
-            const colRef = collection(db, "events");
-            const docRef = doc(db, "events", state);
-            const docsSnap = await getDocs(colRef);
+        if (cardID) {
+            window.scrollTo(0, 0);
+            async function fetchData(cardID) {
 
-            var docIDs = [];
-            docsSnap.forEach(doc => {
-              docIDs.push(doc.id)
-            })
+                const colRef = collection(db, "events");
+                const docRef = doc(db, "events", cardID);
+                const docsSnap = await getDocs(colRef);
 
-            const data = await getDoc(docRef);
+                var docIDs = [];
+                docsSnap.forEach(doc => {
+                    docIDs.push(doc.id)
+                })
 
-            let langToRender = [];
-            langToRender.push(data.data().lang);
+                const data = await getDoc(docRef);
 
-            let eTags = data.data().tags;
+                let langToRender = [];
+                langToRender.push(data.data().lang);
 
-            let map = new Map();
-            map.set("name", data.data().name);
-            map.set("type", data.data().type);
-            map.set("date", data.data().date);
-            map.set("description", data.data().description);
-            map.set("imageURL", data.data()["image-url"]);
-            map.set("lang", langToRender.join(", "));
-            map.set("eventTags", eTags);
-            map.set("imageBG", data.data()["imageBG-url"]);
-            map.set("otherEvents", docIDs);
+                let eTags = data.data().tags;
 
-            return map;
+                let map = new Map();
+                map.set("name", data.data().name);
+                map.set("type", data.data().type);
+                map.set("date", data.data().date);
+                map.set("description", data.data().description);
+                map.set("imageURL", data.data()["image-url"]);
+                map.set("lang", langToRender.join(", "));
+                map.set("eventTags", eTags);
+                map.set("imageBG", data.data()["imageBG-url"]);
+                map.set("otherEvents", docIDs);
+
+                return map;
+            }
+
+            fetchData(cardID).then((map) => {
+                setEventName(map.get("name"));
+                setEventType(map.get("type"));
+                setEventDate(map.get("date"));
+                setEventDescription(map.get("description"));
+                setEventImageURL(map.get("imageURL"));
+                setEventLang(map.get("lang"));
+                setEventTags(map.get("eventTags"));
+                setEventImageBGURL(map.get("imageBG"));
+                setOtherEvents(map.get("otherEvents"));
+            });
         }
 
-        fetchData(state).then((map) => {
-            setEventName(map.get("name"));
-            setEventType(map.get("type"));
-            setEventDate(map.get("date"));
-            setEventDescription(map.get("description"));
-            setEventImageURL(map.get("imageURL"));
-            setEventLang(map.get("lang"));
-            setEventTags(map.get("eventTags"));
-            setEventImageBGURL(map.get("imageBG"));
-            setOtherEvents(map.get("otherEvents"));
-        });
+    }, [cardID]);
 
 
-    }, []);
 
     return (
 
         <div>
             <Header />
-            <div class="detailsBackdrop"> 
-                <img class="detailsBackdropIMG" src={eventImageBGURL}></img> 
+            <div class="detailsBackdrop">
+                <img class="detailsBackdropIMG" src={eventImageBGURL}></img>
             </div>
             <div class="container">
                 <div class="inf">
-                    <Link to="/EventList" >
-                        <button id='to'>До списку конференцій</button>
+                    <Link to="/events" >
+                        <button id='to'>К списку конференций</button>
                     </Link>
                     <div class="infodet">
                         <div class="poster">
-                            <img src={eventImageURL}></img>
+                            <img src={eventImageURL || imageLoading}></img>
                         </div>
                         <div class="det">
-                            <p> {eventType} </p>
-                            <h1> {eventName} </h1>
+                            <p> {eventType || <Skeleton />} </p>
+                            <h1> {eventName || <Skeleton count={2} />} </h1>
                             <div class="card">
                                 <InfoCard />
                                 <InfoCardV />
@@ -120,10 +137,11 @@ const DetailEvent = (props) => {
                             </div>
                             <div class="but">
                                 <div class="apply">
-                                    <Button variant="primary" onClick={handleShow} id="a">Подати заявку</Button>
+                                    <Button variant="primary" onClick={handleShowv2} id="primaryButton"><div id='primaryButtonText'>Подати заявку</div> <img src={chevronLeft}></img> </Button>
                                 </div>
+
                                 <div class="rulesb">
-                                    <Button variant="primary" onClick={handleShowv2} id="av">Правила подання та оформлення тез</Button>
+                                    <Button variant="primary" onClick={handleShow} id="secondaryButton"><div id='secondaryButtonText'>Правила подачи и оформления тезисов</div></Button>
                                 </div>
                             </div>
                         </div>
@@ -143,8 +161,9 @@ const DetailEvent = (props) => {
 
                         <div class="textdesc">
                             <div class="confdesc">
-                                <h1>Опис конференції</h1>
-                                <p> {eventDescription} </p>
+                                <h1>Описание конференции</h1>
+
+                                <p> {eventDescription || <Skeleton count={10} />} </p>
                             </div>
                             <div class="confdetail">
                                 <h1>Детали</h1>
@@ -153,8 +172,8 @@ const DetailEvent = (props) => {
                                     <p>Учасник може надати кілька доповідей</p>
                                 </div>
                                 <div class="part3">
-                                    <img src={file}></img>
-                                    <p>{eventLang}</p>
+                                    <img src={language}></img>
+                                    <p>{eventLang || <Skeleton />}</p>
                                 </div>
                                 <div class="part3">
                                     <img src={attach}></img>
@@ -186,10 +205,11 @@ const DetailEvent = (props) => {
                     <h1>Заинтересованы?</h1>
                     <div class="but">
                         <div class="apply">
-                            <Button variant="primary" onClick={handleShow} id="a">Подати заявку</Button>
+                            <Button variant="primary" onClick={handleShowv2} id="primaryButton"><div id='primaryButtonText'>Подати заявку</div> <img src={chevronLeft}></img> </Button>
                         </div>
+
                         <div class="rulesb">
-                            <Button variant="primary" onClick={handleShowv2} id="av">Правила подачи и оформления тезисов</Button>
+                            <Button variant="primary" onClick={handleShow} id="secondaryButton"><div id='secondaryButtonText'>Правила подачи и оформления тезисов</div></Button>
                         </div>
                     </div>
                 </div>
@@ -197,8 +217,8 @@ const DetailEvent = (props) => {
                     <h1 id="othhead">Інші конференції</h1>
                     <div class="otherconf">
                         {otherEvents.map(otherEvents => (
-                                    <EventCard key={otherEvents} cardID={otherEvents} />
-                                ))}
+                            <EventCard key={otherEvents} cardID={otherEvents} />
+                        ))}
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ import EventCard from './EventCard';
 import EventList from './EventList';
 import Rules from './Rules';
 import EnterForm from './EnterForm'
-import Filter from './Filter';
+import ErrorPage from './ErrorPage';
 import DetailEvent from './DetailEvent';
 import reportWebVitals from './reportWebVitals';
 import "./firebase.js"
@@ -24,7 +24,7 @@ const docRef = doc(firestore, "test/zJy6I9RbgKErp7iHdXdJ");
 
 const router = createBrowserRouter([
   {
-    path: "/", element: <div>Hello</div>
+    path: "/", element: <EnterForm />, errorElement: <ErrorPage />
   },
   {
     path: "/Ent", element: <Ent />
@@ -39,13 +39,13 @@ const router = createBrowserRouter([
     path: "/EventCard", element: <EventCard />
   },
   {
-    path: "/EventList", element: <EventList />
+    path: "/events", element: <EventList />
   },
   {
-    path: "/Rules", element: <Rules />
+    path: "/Rules", element: <Rules />  
   },
   {
-    path: "/DetailEvent", element: <DetailEvent />
+    path: "/events/:cardID", element: <DetailEvent />
   },
 ]
 );
