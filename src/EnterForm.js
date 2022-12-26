@@ -21,7 +21,7 @@ class EnterForm extends Component {
                         <label for="email">Електронна пошта</label><input type="text" placeholder='email@gmail.com'></input>
                         <label for="password">Пароль</label><input type="password" placeholder='*********'></input>
                         <div class="enter">
-                            <Link to="/EventList">
+                            <Link to="/events">
                                 <button>Увійти</button>
                             </Link>
                         </div>
