@@ -25,8 +25,6 @@ import { useParams } from "react-router-dom";
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import { useLocation } from "react-router-dom";
-
 import { db } from "./firebase.js"
 import { doc, getDoc, getDocs } from "@firebase/firestore";
 import { collection } from "firebase/firestore";
@@ -40,8 +38,6 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const DetailEvent = (props) => {
     const { cardID } = useParams();
-
-    //console.log("cardID ", cardID);
 
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
