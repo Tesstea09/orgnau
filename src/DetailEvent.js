@@ -16,6 +16,10 @@ import globe from './icon/globe.svg'
 import attach from './icon/file-attachment.svg'
 import imageLoading from './image-loading.png'
 import chevronLeft from './icon/chevron-left.svg'
+import chevronLeft1 from './icon/chevron-left1.svg'
+import certificate from './files/Certificate.jpg'
+import example from './files/Zrazok.doc'
+
 
 import { useParams } from "react-router-dom";
 
@@ -121,7 +125,7 @@ const DetailEvent = (props) => {
             <div class="container">
                 <div class="inf">
                     <Link to="/events" >
-                        <button id='to'>К списку конференций</button>
+                        <button id='to'><img id="imto" src = {chevronLeft1}></img>К списку конференций</button>
                     </Link>
                     <div class="infodet">
                         <div class="poster">
@@ -269,8 +273,8 @@ const DetailEvent = (props) => {
                 </Modal.Body>
                 <Modal.Footer >
                     <div class="ex">
-                        <a href={logo} download="newfile.png"><Button id="certificate" variant="general" >Приклад сертифікату</Button></a>
-                        <a href={logo} download="newfile.png"><Button id="example" variant="general" >Приклад оформлення тез</Button></a>
+                        <a href={certificate} download="Certificate.jpg"><Button id="certificate" variant="general" >Приклад сертифікату</Button></a>
+                        <a href={example} download="Zrazok.doc"><Button id="example" variant="general" >Приклад оформлення тез</Button></a>
                     </div>
                 </Modal.Footer>
             </Modal>

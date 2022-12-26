@@ -8,6 +8,8 @@ import imageLoading from './image-loading.png'
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import calendar from "./icon/calendar.svg"
+import translate from "./icon/translate.svg"
 
 async function loadData(docId) {
     const docRef = doc(db, "events", docId);
@@ -75,8 +77,8 @@ class EventCard extends Component {
                                 <h1 id="confname"> {this.state.name.slice(0, 70) || <Skeleton count={2}/> } {this.state.name.length > this.state.name.slice(0, 70).length ? "..." : "" } </h1>
                                 <p id="confdesc"> {this.state.description.slice(0, 250) || <Skeleton count={5}/>} {this.state.description.length > this.state.description.slice(0, 250).length ? "..." : ""}</p>
                                 <form class="confinf">
-                                    <output id="date">{this.state.date || <Skeleton />}</output>
-                                    <output id="lang">{langToRender.join(", ") || <Skeleton />}</output>
+                                    <output id="date"><img src = {calendar}></img>{this.state.date || <Skeleton />}</output>
+                                    <output id="lang"><img src = {translate}></img>{langToRender.join(", ") || <Skeleton />}</output>
                                 </form>
                             </div>
                         </div>

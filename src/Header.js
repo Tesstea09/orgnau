@@ -9,10 +9,10 @@ function Header(){
                     <Link to = '/events'>
                         <img src={logo} alt=""></img>
                     </Link>
-
-                    <form action="" id="f">
-                        <input type="text" placeholder="Пошук" id="search"></input>
-                    </form>
+                    <Link to = '/EnterForm'>
+                        <a href="">Вхід</a>
+                    </Link>
+                    
                 </div>
         )       
 }

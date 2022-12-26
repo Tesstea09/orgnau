@@ -451,7 +451,6 @@ a {
     line-height: 17px;
     color: #6C66FB;
 }
-
 #date,
 #lang {
     font-style: normal;
@@ -492,17 +491,21 @@ a {
 }
 
 .confinf output {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     padding: 8px 16px;
     gap: 8px;
 
-    width: 137px;
     height: 17px;
 
     background: #ECF0F2;
     border-radius: 1000px;
 }
-
+.confinf img{
+    height:16px;
+    width:16px;
+}
 .Comp {
     padding: 20px 20px;
     height: 900px;
@@ -558,6 +561,7 @@ a {
 
 #infoname {
     margin-top: 16px;
+    height: 42px;
 }
 
 #infoname,
@@ -1112,6 +1116,9 @@ a {
 }
 
 #to {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -1120,12 +1127,15 @@ a {
     color: #191B1F;
     padding: 10px 16px;
     gap: 12px;
-    width: 243px;
     height: 41px;
     background: #FFFFFF;
     border-radius: 1000px;
     border-style: none;
     cursor: pointer;
+}
+#imto{
+    height:20px;
+    width:20px;
 }
 
 .container {
