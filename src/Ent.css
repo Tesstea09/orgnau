@@ -1143,6 +1143,7 @@ body {
     gap: 32px;
     overflow-x: scroll;
     max-height: 500px;
+    padding-bottom: 32px;
 }
 
 /* Firefox */
