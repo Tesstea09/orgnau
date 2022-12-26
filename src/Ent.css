@@ -670,7 +670,6 @@ a {
     align-items: center;
     padding: 0px 0px;
     gap: 64px;
-    width: 752px;
     height: 58px;
 }
 
@@ -715,10 +714,15 @@ a {
 }
 
 .ex {
+    margin-top: 90px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+}
+.ex img{
+    height: 24px;
+    width: 24px;
 }
 
 #certificate {
@@ -762,6 +766,7 @@ a {
     cursor: pointer;
 }
 
+
 .modalcontent {
     margin-bottom: 32px;
 }
@@ -793,8 +798,11 @@ a {
 
 .applyv2 {
     margin-top: 400px;
-    width: 160px;
+    height: 24px;  
+}
+.applyv2 img{
     height: 24px;
+    width: 24px;
 }
 
 .applyfoot {
@@ -1188,4 +1196,25 @@ html {
 ::-webkit-scrollbar-thumb {
     background: #191B1F;
     border-radius: 1000px;
+}
+.conterror{
+    text-align: center;
+}
+.error{
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+.conterror img{
+    height: 387px;
+    width: 684px;
+    margin-bottom: 35px ;
+}
+.conterror p{
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #191B1F;
 }
