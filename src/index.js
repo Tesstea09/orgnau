@@ -24,7 +24,7 @@ const docRef = doc(firestore, "test/zJy6I9RbgKErp7iHdXdJ");
 
 const router = createBrowserRouter([
   {
-    path: "/", element: <div>Hello</div>
+    path: "/", element: <EventList />
   },
   {
     path: "/Ent", element: <Ent />

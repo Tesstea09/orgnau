@@ -4,6 +4,11 @@ import { db } from "./firebase.js"
 import { doc, getDoc } from "@firebase/firestore";
 import { Link } from "react-router-dom";
 
+import imageLoading from './image-loading.png'
+
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 async function loadData(docId) {
     const docRef = doc(db, "events", docId);
 
@@ -19,12 +24,12 @@ class EventCard extends Component {
         super(props);
 
         this.state = {
-            name: 'Loading...',
-            type: 'Loading...',
-            description: 'Loading...',
+            name: '',
+            type: '',
+            description: '',
 
-            date: 'Loading...',
-            language: 'Loading...'
+            date: '',
+            language: ''
         }
 
         this.handleEvent = this.handleEvent.bind(this);
@@ -59,19 +64,19 @@ class EventCard extends Component {
 
             <div class="Card">
                 <Link to='/DetailEvent' state={this.props.cardID} >
-                    <img src={this.state.imageBG} alt="pattern" id="patt"></img>
+                    <img src={this.state.imageBG || imageLoading} alt="pattern" id="patt"></img>
                     <div class="ConfComp">
                         <div class="ConfDev">
                             <div>
-                                <img src={this.state.imageURL} id="post"></img>
+                                <img src={this.state.imageURL || imageLoading} id="post"></img>
                             </div>
                             <div class="confinfor">
-                                <p id="conftype"> {this.state.type} </p>
-                                <h1 id="confname"> {this.state.name.slice(0, 70)} {this.state.name.length > this.state.name.slice(0, 70).length ? "..." : ""} </h1>
-                                <p id="confdesc"> {this.state.description.slice(0, 250)} {this.state.description.length > this.state.description.slice(0, 250).length ? "..." : ""}</p>
+                                <p id="conftype"> {this.state.type || <Skeleton />} </p>
+                                <h1 id="confname"> {this.state.name.slice(0, 70) || <Skeleton count={2}/> } {this.state.name.length > this.state.name.slice(0, 70).length ? "..." : "" } </h1>
+                                <p id="confdesc"> {this.state.description.slice(0, 250) || <Skeleton count={5}/>} {this.state.description.length > this.state.description.slice(0, 250).length ? "..." : ""}</p>
                                 <form class="confinf">
-                                    <output id="date">{this.state.date}</output>
-                                    <output id="lang">{langToRender.join(", ")}</output>
+                                    <output id="date">{this.state.date || <Skeleton />}</output>
+                                    <output id="lang">{langToRender.join(", ") || <Skeleton />}</output>
                                 </form>
                             </div>
                         </div>
