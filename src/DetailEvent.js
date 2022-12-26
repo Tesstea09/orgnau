@@ -104,7 +104,7 @@ const DetailEvent = (props) => {
             <div class="container">
                 <div class="inf">
                     <Link to="/EventList" >
-                        <button id='to'>К списку конференций</button>
+                        <button id='to'>До списку конференцій</button>
                     </Link>
                     <div class="infodet">
                         <div class="poster">
@@ -123,7 +123,7 @@ const DetailEvent = (props) => {
                                     <Button variant="primary" onClick={handleShow} id="a">Подати заявку</Button>
                                 </div>
                                 <div class="rulesb">
-                                    <Button variant="primary" onClick={handleShowv2} id="av">Правила подачи и оформления тезисов</Button>
+                                    <Button variant="primary" onClick={handleShowv2} id="av">Правила подання та оформлення тез</Button>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ const DetailEvent = (props) => {
                 </div>
                 <div class="screen2">
                     <div>
-                        <h1 id="othhead">Основные направления конференции</h1>
+                        <h1 id="othhead">Основні напрямки конференції</h1>
                     </div>
                     <div class="part1s">
 
@@ -143,14 +143,14 @@ const DetailEvent = (props) => {
 
                         <div class="textdesc">
                             <div class="confdesc">
-                                <h1>Описание конференции</h1>
+                                <h1>Опис конференції</h1>
                                 <p> {eventDescription} </p>
                             </div>
                             <div class="confdetail">
                                 <h1>Детали</h1>
                                 <div class="part3">
                                     <img src={file}></img>
-                                    <p>Участник может предоставить несколько докладов</p>
+                                    <p>Учасник може надати кілька доповідей</p>
                                 </div>
                                 <div class="part3">
                                     <img src={file}></img>
@@ -162,12 +162,12 @@ const DetailEvent = (props) => {
                                 </div>
                             </div>
                             <div class="confcont">
-                                <h1>Контакты</h1>
+                                <h1>Контакти</h1>
                                 <div class="part3">
                                     <img src={user}></img>
                                     <div>
-                                        <p>Владленов Денис Андреевич</p>
-                                        <p>Клиент-менеджер «isg-konf.com»</p>
+                                        <p>Владленов Денис Андрійович</p>
+                                        <p>Клієнт-менеджер «isg-konf.com»</p>
                                     </div>
                                 </div>
                                 <div class="part3">
@@ -194,7 +194,7 @@ const DetailEvent = (props) => {
                     </div>
                 </div>
                 <div class="other">
-                    <h1 id="othhead">Другие конференции</h1>
+                    <h1 id="othhead">Інші конференції</h1>
                     <div class="otherconf">
                         {otherEvents.map(otherEvents => (
                                     <EventCard key={otherEvents} cardID={otherEvents} />
@@ -261,7 +261,6 @@ const DetailEvent = (props) => {
                 show={show2}
                 onHide={handleClosev2}
                 keyboard={true}
-
                 centered
 
             >
