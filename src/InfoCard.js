@@ -38,3 +38,4 @@ const InfoCard = (props) => {
         )
 }
 export default InfoCard
+

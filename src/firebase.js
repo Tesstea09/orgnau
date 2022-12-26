@@ -20,6 +20,5 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-
 console.log("Firebase connected");
 export { db };

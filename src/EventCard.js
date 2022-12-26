@@ -20,7 +20,6 @@ async function loadData(docId) {
 class EventCard extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             name: '',
             type: '',
@@ -29,14 +28,11 @@ class EventCard extends Component {
             date: '',
             language: ''
         }
-
         this.handleEvent = this.handleEvent.bind(this);
     }
-
     handleEvent() {
         console.log(this.props);
     }
-
     async componentDidMount() {
         var cardID = this.props.cardID;
         const data = await loadData(cardID);
@@ -85,3 +81,5 @@ class EventCard extends Component {
     }
 }
 export default EventCard
+
+
