@@ -40,8 +40,6 @@ class EventCard extends Component {
     }
 
     async componentDidMount() {
-        //console.log("Component did Mount");
-
         var cardID = this.props.cardID;
         const data = await loadData(cardID);
 
