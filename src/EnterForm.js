@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
-import RegForm from './RegForm'
-import { Navigate } from "react-router-dom";
 import './Ent.css'
 
 import { db } from "./firebase.js"
