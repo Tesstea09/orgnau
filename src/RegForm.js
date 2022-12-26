@@ -54,9 +54,8 @@ class RegForm extends Component {
     render() {
         return (
             <div class="main">
-                <Header />
                 <div class="start">
-                    <div id="startF">
+                    <div class="startF">
                         <h1>Реєстрація</h1>
                         <p>Вже є акаунт? <Link to="/login" id="enter">Увійти</Link> </p>
                     </div>
@@ -85,7 +84,6 @@ class RegForm extends Component {
                         </div>
                     </form>
                 </div>
-                <Footer />
             </div>
         )
     }
