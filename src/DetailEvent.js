@@ -17,6 +17,7 @@ import attach from './icon/file-attachment.svg'
 import imageLoading from './image-loading.png'
 import chevronLeft from './icon/chevron-left.svg'
 import chevronLeft1 from './icon/chevron-left1.svg'
+import cloud from './icon/download-cloud.svg'
 import certificate from './files/Certificate.jpg'
 import example from './files/Zrazok.doc'
 
@@ -270,7 +271,7 @@ const DetailEvent = (props) => {
                 <Modal.Footer >
                     <div class="ex">
                         <a href={certificate} download="Certificate.jpg"><Button id="certificate" variant="general" >Приклад сертифікату</Button></a>
-                        <a href={example} download="Zrazok.doc"><Button id="example" variant="general" >Приклад оформлення тез</Button></a>
+                        <a href={example} download="Zrazok.doc"><Button id="example" variant="general" ><img src = {cloud}></img>Приклад оформлення тез</Button></a>
                     </div>
                 </Modal.Footer>
             </Modal>
@@ -306,6 +307,7 @@ const DetailEvent = (props) => {
                     <div class="applyfoot">
                         <div class="applyv2">
                             <a href="mailto:cezar191299@gmail.com?subject=Подача заявки">Подати заявку</a>
+                            <img src = {chevronLeft}></img>
                         </div>
                     </div>
                 </Modal.Footer>

@@ -15,6 +15,7 @@ import Rules from './Rules';
 import EnterForm from './EnterForm'
 import ErrorPage from './ErrorPage';
 import DetailEvent from './DetailEvent';
+import Error from './Error';
 import reportWebVitals from './reportWebVitals';
 import "./firebase.js"
 import { doc, getDoc, getFirestore } from "@firebase/firestore";
@@ -43,6 +44,9 @@ const router = createBrowserRouter([
   },
   {
     path: "/Rules", element: <Rules />  
+  },
+  {
+    path: "/error", element: <Error />  
   },
   {
     path: "/events/:cardID", element: <DetailEvent />
