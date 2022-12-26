@@ -13,12 +13,8 @@ import translate from "./icon/translate.svg"
 
 async function loadData(docId) {
     const docRef = doc(db, "events", docId);
-
     const docSnap = await getDoc(docRef);
-    //console.log(docSnap.data());
-
     return (docSnap.data());
-
 }
 
 class EventCard extends Component {
