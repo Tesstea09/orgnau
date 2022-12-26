@@ -55,6 +55,8 @@ const DetailEvent = (props) => {
 
     useEffect(() => {
 
+        console.log(state);
+
         async function fetchData(state) {
             const colRef = collection(db, "events");
             const docRef = doc(db, "events", state);

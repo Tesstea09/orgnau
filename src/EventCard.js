@@ -63,7 +63,7 @@ class EventCard extends Component {
         return (
 
             <div class="Card">
-                <Link to='/DetailEvent' state={this.props.cardID} >
+                <Link to={`/DetailEvent/${this.props.cardID}`} state={this.props.cardID} >
                     <img src={this.state.imageBG || imageLoading} alt="pattern" id="patt"></img>
                     <div class="ConfComp">
                         <div class="ConfDev">

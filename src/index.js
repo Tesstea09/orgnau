@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     path: "/Rules", element: <Rules />
   },
   {
-    path: "/DetailEvent", element: <DetailEvent />
+    path: "/DetailEvent/:cardID", element: <DetailEvent />
   },
 ]
 );
