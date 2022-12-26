@@ -8,11 +8,6 @@ import EnterForm from './EnterForm'
 import DetailEvent from './DetailEvent';
 import Error from './Error';
 import reportWebVitals from './reportWebVitals';
-import "./firebase.js"
-import { doc, getFirestore } from "@firebase/firestore";
-
-const firestore = getFirestore();
-const docRef = doc(firestore, "test/zJy6I9RbgKErp7iHdXdJ");
 
 const router = createBrowserRouter([
   {
