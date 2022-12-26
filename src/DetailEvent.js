@@ -36,8 +36,8 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const DetailEvent = (props) => {
     const { cardID } = useParams();
-    
-    //console.log("this.context:", cardID);
+
+    //console.log("cardID ", cardID);
 
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
@@ -60,52 +60,55 @@ const DetailEvent = (props) => {
 
     useEffect(() => {
 
-        async function fetchData(cardID) {
+        if (cardID) {
+            async function fetchData(cardID) {
 
-            const colRef = collection(db, "events");
-            const docRef = doc(db, "events", cardID);
-            const docsSnap = await getDocs(colRef);
+                const colRef = collection(db, "events");
+                const docRef = doc(db, "events", cardID);
+                const docsSnap = await getDocs(colRef);
 
-            var docIDs = [];
-            docsSnap.forEach(doc => {
-                docIDs.push(doc.id)
-            })
+                var docIDs = [];
+                docsSnap.forEach(doc => {
+                    docIDs.push(doc.id)
+                })
 
-            const data = await getDoc(docRef);
+                const data = await getDoc(docRef);
 
-            let langToRender = [];
-            langToRender.push(data.data().lang);
+                let langToRender = [];
+                langToRender.push(data.data().lang);
 
-            let eTags = data.data().tags;
+                let eTags = data.data().tags;
 
-            let map = new Map();
-            map.set("name", data.data().name);
-            map.set("type", data.data().type);
-            map.set("date", data.data().date);
-            map.set("description", data.data().description);
-            map.set("imageURL", data.data()["image-url"]);
-            map.set("lang", langToRender.join(", "));
-            map.set("eventTags", eTags);
-            map.set("imageBG", data.data()["imageBG-url"]);
-            map.set("otherEvents", docIDs);
+                let map = new Map();
+                map.set("name", data.data().name);
+                map.set("type", data.data().type);
+                map.set("date", data.data().date);
+                map.set("description", data.data().description);
+                map.set("imageURL", data.data()["image-url"]);
+                map.set("lang", langToRender.join(", "));
+                map.set("eventTags", eTags);
+                map.set("imageBG", data.data()["imageBG-url"]);
+                map.set("otherEvents", docIDs);
 
-            return map;
+                return map;
+            }
+
+            fetchData(cardID).then((map) => {
+                setEventName(map.get("name"));
+                setEventType(map.get("type"));
+                setEventDate(map.get("date"));
+                setEventDescription(map.get("description"));
+                setEventImageURL(map.get("imageURL"));
+                setEventLang(map.get("lang"));
+                setEventTags(map.get("eventTags"));
+                setEventImageBGURL(map.get("imageBG"));
+                setOtherEvents(map.get("otherEvents"));
+            });
         }
 
-        fetchData(cardID).then((map) => {
-            setEventName(map.get("name"));
-            setEventType(map.get("type"));
-            setEventDate(map.get("date"));
-            setEventDescription(map.get("description"));
-            setEventImageURL(map.get("imageURL"));
-            setEventLang(map.get("lang"));
-            setEventTags(map.get("eventTags"));
-            setEventImageBGURL(map.get("imageBG"));
-            setOtherEvents(map.get("otherEvents"));
-        });
+    }, [cardID]);
 
 
-    }, []);
 
     return (
 
