@@ -61,6 +61,7 @@ const DetailEvent = (props) => {
     useEffect(() => {
 
         async function fetchData(cardID) {
+
             const colRef = collection(db, "events");
             const docRef = doc(db, "events", cardID);
             const docsSnap = await getDocs(colRef);
