@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react'
 import './Ent.css'
 import back from './back.png'
 import { db } from "./firebase.js"
@@ -13,9 +13,9 @@ async function loadData(docId) {
 
 }
 
-class Info extends Component{
-    
-    constructor(props){
+class Info extends Component {
+
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -23,12 +23,12 @@ class Info extends Component{
             imageURL: ''
         }
 
-        this.handleEvent = this.handleEvent.bind(this); 
+        this.handleEvent = this.handleEvent.bind(this);
     }
 
-    handleEvent(){  
-        console.log(this.props);  
-    }  
+    handleEvent() {
+        console.log(this.props);
+    }
 
     async componentDidMount() {
         //console.log("Component did Mount");
@@ -36,18 +36,18 @@ class Info extends Component{
         var eventID = this.props.eventID;
         const data = await loadData(eventID);
 
-        this.setState({ 
+        this.setState({
             name: data.name,
             imageURL: data["img-url"]
         });
     }
 
 
-    render(){
-        return(
+    render() {
+        return (
             <div class = "info">
-            
-                <div class = "tagImg"> <img src = {this.state.imageURL}></img> </div>
+
+                <div class="tagImg"> <img src={this.state.imageURL}></img> </div>
 
                 <div class = "catname">
                     <p> {this.state.name} </p>

@@ -38,18 +38,18 @@ class EventList extends Component {
   }
 
   render() {
-    return (      
+    return (
       <div>
         <Header />
-        <div class = "EventContent">
-            <div color="red">
-            <h1 id = "All">Всі конференції</h1>
-            </div>
-            <div class = "list ">
+        <div class="EventContent">
+          <div color="red">
+            <h1 id="All">Всі конференції</h1>
+          </div>
+          <div class="list ">
             {this.state.events.map((event) => (
-            <EventCard key={event.id} cardID={event.id} />
+              <EventCard key={event.id} cardID={event.id} />
             ))}
-            </div>
+          </div>
         </div>
         <Footer />
       </div>

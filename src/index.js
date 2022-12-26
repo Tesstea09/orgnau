@@ -23,31 +23,31 @@ const firestore = getFirestore();
 const docRef = doc(firestore, "test/zJy6I9RbgKErp7iHdXdJ");
 
 const router = createBrowserRouter([
-    {
-      path: "/", element: <div>Hello</div>
-    },
-    {
-      path:"/Ent",element: <Ent/>
-    },
-    {
-      path:"/RegForm",element: <RegForm/>
-    },
-    {
-      path:"/EnterForm",element: <EnterForm/>
-    },
-    {
-      path:"/EventCard",element: <EventCard/>
-    },
-    {
-      path:"/EventList",element: <EventList/>
-    },
-    {
-      path:"/Rules",element: <Rules/>
-    },
-    {
-      path:"/DetailEvent",element: <DetailEvent/>
-    },
-    ]
+  {
+    path: "/", element: <div>Hello</div>
+  },
+  {
+    path: "/Ent", element: <Ent />
+  },
+  {
+    path: "/RegForm", element: <RegForm />
+  },
+  {
+    path: "/EnterForm", element: <EnterForm />
+  },
+  {
+    path: "/EventCard", element: <EventCard />
+  },
+  {
+    path: "/EventList", element: <EventList />
+  },
+  {
+    path: "/Rules", element: <Rules />
+  },
+  {
+    path: "/DetailEvent", element: <DetailEvent />
+  },
+]
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
