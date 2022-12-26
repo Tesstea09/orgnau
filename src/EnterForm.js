@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import RegForm from './RegForm'
+import { Navigate } from "react-router-dom";
 import './Ent.css'
 
 import { db } from "./firebase.js"
 import { doc, getDoc } from "@firebase/firestore";
 
-async function loadData(docId) {
+async function checkPass(docId) {
     const docRef = doc(db, "users", docId);
-
     const docSnap = await getDoc(docRef);
-
     return (docSnap.data());
 }
 
@@ -19,52 +18,60 @@ async function getDocID() {
     const colRef = collection(db, "users");
     const docsSnap = await getDocs(colRef);
     var docIDs = [];
-  
+
     docsSnap.forEach(doc => {
-      docIDs.push(doc.id)
+        docIDs.push(doc.id)
     })
-    
+
     return await docIDs;
-  }
+}
+
+async function getUserID(email) {
+    const userRef = collection(db, "users");
+    const q = query(userRef, where("email", "==", email));
+
+    var docIDS = [];
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        docIDS.push(doc.id);
+    });
+
+    return (docIDS.toString());
+
+};
 
 class EnterForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
-            emails: [],
-            ids: [],
             errors: [],
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e){
+    async handleSubmit(e) {
         e.preventDefault();
 
         const email = document.getElementById("_emailInput").value || "";
         const password = document.getElementById("_passwordInput").value || "";
+        const userID = await getUserID(email);
 
-
-        console.log(email);
-        console.log(password);
-    }
-
-    async componentDidMount(){
-        var docIDS = await getDocID();
-        console.log("Doc IDs: ", docIDS);
-
-        for (var i = 0; i < docIDS.length; i++){
-            var data = await loadData(docIDS.toString());
-            this.state.emails.push(data.email);
-            this.state.ids.push(docIDS);
+        try {
+            var passGood = await checkPass(userID);
         }
-            console.log(this.state.emails);
-            console.log(this.state.ids);
+        catch {alert("Email or password incorrect")};
 
+
+
+        if (passGood.password == password) {
+            console.log("Password correct");
+            window.location.replace('/events')
+        }
+        else alert("Email or password incorrect");
     }
-
 
     render() {
         return (
@@ -72,7 +79,7 @@ class EnterForm extends Component {
                 <div class="start">
                     <div class="startF">
                         <h1>Увійти</h1>
-                        <Link to='/RegForm'>
+                        <Link to='/register'>
                             <p>Ще не створили акаунт? <span>Реєстрація</span> </p>
                         </Link>
                     </div>
