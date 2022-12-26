@@ -14,13 +14,11 @@ async function addUser(userName, userSurname, userMail, userPass) {
     const colRef = collection(db, 'users');
 
     setDoc(doc(db, "users", uuidv4()), {
-        name: userName + userSurname,
+        name: userName + " " + userSurname,
         mail: userMail,
         password: userPass
     });
 }
-
-
 
 class RegForm extends Component {
 
@@ -31,8 +29,26 @@ class RegForm extends Component {
         const userSurname = document.getElementById("surname").value || "";
         const userMail = document.getElementById("email1").value || "";
         const userPass1 = document.getElementById("password_r").value || "";
-        const userPass2 = document.getElementById("password").value || "";
+        const userPass2 = document.getElementById("password_rr").value || "";
 
+        if (userName) {
+            if (userSurname) {
+                // Email check
+                if (/(.+)@(.+){2,}\.(.+){2,}/.test(userMail)) {
+                    // valid email
+                    console.log("Email valid");
+
+                    if (userPass1) {
+                        if (userPass1 == userPass2) { addUser(userName, userSurname, userMail, userPass1); alert("Successfully registered. Please log in");  }
+                        else alert("Passwords do not match");
+                    } else alert("Please enter a password");
+
+                } else {
+                    // invalid email
+                    alert("Email is invalid");
+                }
+            } else alert("Please enter a surname");
+        } else alert("Please enter a name");
     }
 
     render() {
