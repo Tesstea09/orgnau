@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Header(){
         return(
                 <div class = 'header'>
-                    <Link to = '/EventList'>
+                    <Link to = '/events'>
                         <img src={logo} alt=""></img>
                     </Link>
 

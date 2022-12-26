@@ -17,6 +17,8 @@ import attach from './icon/file-attachment.svg'
 import imageLoading from './image-loading.png'
 import chevronLeft from './icon/chevron-left.svg'
 
+import { useParams } from "react-router-dom";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import { useLocation } from "react-router-dom";
@@ -33,6 +35,10 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 const DetailEvent = (props) => {
+    const { cardID } = useParams();
+    
+    //console.log("this.context:", cardID);
+
     const [show, setShow] = useState(false);
     const [show2, setShow2] = useState(false);
 
@@ -40,7 +46,6 @@ const DetailEvent = (props) => {
     const handleShow = () => setShow(true);
     const handleClosev2 = () => setShow2(false);
     const handleShowv2 = () => setShow2(true);
-    const { state } = useLocation();
 
     const [eventName, setEventName] = useState(null);
     const [eventType, setEventType] = useState(null);
@@ -55,11 +60,9 @@ const DetailEvent = (props) => {
 
     useEffect(() => {
 
-        console.log(state);
-
-        async function fetchData(state) {
+        async function fetchData(cardID) {
             const colRef = collection(db, "events");
-            const docRef = doc(db, "events", state);
+            const docRef = doc(db, "events", cardID);
             const docsSnap = await getDocs(colRef);
 
             var docIDs = [];
@@ -88,7 +91,7 @@ const DetailEvent = (props) => {
             return map;
         }
 
-        fetchData(state).then((map) => {
+        fetchData(cardID).then((map) => {
             setEventName(map.get("name"));
             setEventType(map.get("type"));
             setEventDate(map.get("date"));
@@ -112,7 +115,7 @@ const DetailEvent = (props) => {
             </div>
             <div class="container">
                 <div class="inf">
-                    <Link to="/EventList" >
+                    <Link to="/events" >
                         <button id='to'>К списку конференций</button>
                     </Link>
                     <div class="infodet">

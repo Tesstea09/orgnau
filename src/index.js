@@ -39,13 +39,13 @@ const router = createBrowserRouter([
     path: "/EventCard", element: <EventCard />
   },
   {
-    path: "/EventList", element: <EventList />
+    path: "/events", element: <EventList />
   },
   {
     path: "/Rules", element: <Rules />
   },
   {
-    path: "/DetailEvent/:cardID", element: <DetailEvent />
+    path: "/events/:cardID", element: <DetailEvent />
   },
 ]
 );
