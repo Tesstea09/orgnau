@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from "./firebase.js"
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const InfoCardV = (props) =>  {
 
 
@@ -31,7 +34,7 @@ const InfoCardV = (props) =>  {
             <div class="infocard">
                 <img src={date}></img>
                 <p id='infoname'>Термін подання тез та оргвнесків (включно)</p>
-                <p id='infodate'> {cardData} </p>
+                <p id='infodate'> {cardData || <Skeleton />} </p>
             </div>
         )
     

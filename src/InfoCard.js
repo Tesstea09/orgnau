@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from "./firebase.js"
 
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const InfoCard = (props) => {
 
     const { cardID } = useParams();
@@ -30,7 +33,7 @@ const InfoCard = (props) => {
             <div class="infocard">
                 <img src={calendar}></img>
                 <p id='infoname'>Розміщення матеріалів конференції та на сайті</p>
-                <p id='infodate'> {cardData} </p>
+                <p id='infodate'> {cardData || <Skeleton />} </p>
             </div>
         )
 }
