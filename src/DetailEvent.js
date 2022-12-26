@@ -61,6 +61,7 @@ const DetailEvent = (props) => {
     useEffect(() => {
 
         if (cardID) {
+            window.scrollTo(0, 0);
             async function fetchData(cardID) {
 
                 const colRef = collection(db, "events");
